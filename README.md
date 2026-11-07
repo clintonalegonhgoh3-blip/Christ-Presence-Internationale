@@ -39,8 +39,8 @@ Chaque membre a « ses » fichiers : cela évite que deux personnes modifient le
 
 | Dossier / fichier | Rôle | Contenu |
 | --- | --- | --- |
-| `content/*.json` | **Contenu** | Tous les textes, horaires, coordonnées, équipe, prédications |
-| `views/partials/debut.ejs`, `fin.ejs`, `en-tete-page.ejs` | **Frontend 1-ALICE** | En-tête, menu, pied de page communs |
+| `content/*.json` | **Contenu-ALE GONH-GOH** | Tous les textes, horaires, coordonnées, équipe, prédications |
+| `views/partials/debut.ejs`, `fin.ejs`, `en-tete-page.ejs` | **Frontend 1-DJONGON** | En-tête, menu, pied de page communs |
 | `views/accueil.ejs`, `a-propos.ejs`, `404.ejs` | **Frontend 1-DJONGON** | Pages Accueil, À propos, page introuvable |
 | `public/css/base.css`, `mise-en-page.css` | **Frontend 1-DJONGON** | Couleurs, polices, structure générale |
 | `public/js/menu.js` | **Frontend 1-DJONGON** | Menu sur téléphone |
