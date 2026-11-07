@@ -40,16 +40,16 @@ Chaque membre a « ses » fichiers : cela évite que deux personnes modifient le
 | Dossier / fichier | Rôle | Contenu |
 | --- | --- | --- |
 | `content/*.json` | **Contenu** | Tous les textes, horaires, coordonnées, équipe, prédications |
-| `views/partials/debut.ejs`, `fin.ejs`, `en-tete-page.ejs` | **Frontend 1** | En-tête, menu, pied de page communs |
-| `views/accueil.ejs`, `a-propos.ejs`, `404.ejs` | **Frontend 1** | Pages Accueil, À propos, page introuvable |
-| `public/css/base.css`, `mise-en-page.css` | **Frontend 1** | Couleurs, polices, structure générale |
-| `public/js/menu.js` | **Frontend 1** | Menu sur téléphone |
+| `views/partials/debut.ejs`, `fin.ejs`, `en-tete-page.ejs` | **Frontend 1-ALICE** | En-tête, menu, pied de page communs |
+| `views/accueil.ejs`, `a-propos.ejs`, `404.ejs` | **Frontend 1-DJONGON** | Pages Accueil, À propos, page introuvable |
+| `public/css/base.css`, `mise-en-page.css` | **Frontend 1-DJONGON** | Couleurs, polices, structure générale |
+| `public/js/menu.js` | **Frontend 1-DJONGON** | Menu sur téléphone |
 | `views/horaires-activites.ejs`, `enseignements.ejs`, `contact.ejs`, `mentions-legales.ejs`, `partials/liste-evenements.ejs` | **Frontend 2** | Pages Horaires, Enseignements, Contact, Mentions légales |
-| `public/js/formulaire-contact.js` | **Frontend 2** | Vérification et envoi du formulaire |
-| `public/css/composants.css`, `pages.css` | **Frontend 1 et 2** | Chacun dans sa partie (indiquée par des titres dans le fichier) |
-| `src/`, `shared/` | **Backend** | Serveur, routes, réception des messages, sécurité |
-| `tests/` | **Tests** | Tests automatiques et plan de tests manuels |
-| `scripts/`, `.github/`, `package.json`, `README.md` | **Chef de projet** | Outils, intégration continue, documentation |
+| `public/js/formulaire-contact.js` | **Frontend 2-ALOUA** | Vérification et envoi du formulaire |
+| `public/css/composants.css`, `pages.css` | **Frontend 1-DJONGON et 2-ALOUA** | Chacun dans sa partie (indiquée par des titres dans le fichier) |
+| `src/`, `shared/` | **Backend-AL PIDIO** | Serveur, routes, réception des messages, sécurité |
+| `tests/` | **Tests-KOUDADJE** | Tests automatiques et plan de tests manuels |
+| `scripts/`, `.github/`, `package.json`, `README.md` | **Chef de projet-ALE GONH-GOH** | Outils, intégration continue, documentation |
 
 ## 4. Modifier le contenu (sans toucher au code)
 
