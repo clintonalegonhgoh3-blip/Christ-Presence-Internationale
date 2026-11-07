@@ -44,7 +44,7 @@ Chaque membre a « ses » fichiers : cela évite que deux personnes modifient le
 | `views/accueil.ejs`, `a-propos.ejs`, `404.ejs` | **Frontend 1-DJONGON** | Pages Accueil, À propos, page introuvable |
 | `public/css/base.css`, `mise-en-page.css` | **Frontend 1-DJONGON** | Couleurs, polices, structure générale |
 | `public/js/menu.js` | **Frontend 1-DJONGON** | Menu sur téléphone |
-| `views/horaires-activites.ejs`, `enseignements.ejs`, `contact.ejs`, `mentions-legales.ejs`, `partials/liste-evenements.ejs` | **Frontend 2** | Pages Horaires, Enseignements, Contact, Mentions légales |
+| `views/horaires-activites.ejs`, `enseignements.ejs`, `contact.ejs`, `mentions-legales.ejs`, `partials/liste-evenements.ejs` | **Frontend 2-ALOUA** | Pages Horaires, Enseignements, Contact, Mentions légales |
 | `public/js/formulaire-contact.js` | **Frontend 2-ALOUA** | Vérification et envoi du formulaire |
 | `public/css/composants.css`, `pages.css` | **Frontend 1-DJONGON et 2-ALOUA** | Chacun dans sa partie (indiquée par des titres dans le fichier) |
 | `src/`, `shared/` | **Backend-AL PIDIO** | Serveur, routes, réception des messages, sécurité |
