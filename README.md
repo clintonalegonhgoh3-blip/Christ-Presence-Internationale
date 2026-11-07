@@ -11,7 +11,7 @@ Site en français, adapté aux téléphones, tablettes et ordinateurs, avec un t
 
 1. Installer **Node.js** (version LTS 22 ou plus récente) : <https://nodejs.org>
    Vérifier dans un terminal : `node --version`
-2. Récupérer le projet :
+##2. Récupérer le projet :
    ```bash
 git clone https://github.com/clintonalegonhgoh3-blip/Christ-Presence-Internationale.git
 cd Christ-Presence-Internationale
