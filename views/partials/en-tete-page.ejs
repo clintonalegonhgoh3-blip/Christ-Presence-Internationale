@@ -1,0 +1,10 @@
+<%# Bandeau de titre des pages intérieures. Paramètres : titre, introduction. Responsable : FRONTEND 1 %>
+<header class="bandeau-page">
+  <div class="conteneur bandeau-page__interieur">
+    <p class="surtitre"><%= site.nom %></p>
+    <h1 class="bandeau-page__titre"><%= titre %></h1>
+    <% if (introduction) { %>
+      <p class="bandeau-page__intro"><%- champ(introduction) %></p>
+    <% } %>
+  </div>
+</header>

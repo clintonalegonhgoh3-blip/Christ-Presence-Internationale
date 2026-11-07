@@ -1,0 +1,33 @@
+<%# Liste d'événements avec pastille de date. Paramètre : liste. Responsable : FRONTEND 2 %>
+<% if (liste.length === 0) { %>
+  <p class="message-vide">Aucun événement n'est prévu pour le moment. Revenez bientôt !</p>
+<% } else { %>
+  <ul class="evenements" role="list">
+    <% liste.forEach(function (ev) { %>
+      <li class="evenement">
+        <div class="evenement__date<% if (!ev.dateFormatee) { %> evenement__date--vide<% } %>" aria-hidden="true">
+          <% if (ev.dateFormatee) { %>
+            <span class="evenement__jour"><%= ev.dateFormatee.jour %></span>
+            <span class="evenement__mois"><%= ev.dateFormatee.mois %></span>
+          <% } else { %>
+            <span class="evenement__jour">?</span>
+            <span class="evenement__mois">date</span>
+          <% } %>
+        </div>
+        <div class="evenement__corps">
+          <h3 class="evenement__titre"><%- champ(ev.titre) %></h3>
+          <p class="evenement__meta">
+            <% if (ev.dateFormatee) { %>
+              <time datetime="<%= ev.dateFormatee.iso %>"><%= ev.dateFormatee.complet %></time>
+            <% } else { %>
+              <span class="a-completer">[À COMPLÉTER : date au format AAAA-MM-JJ]</span>
+            <% } %>
+            <span class="separateur" aria-hidden="true">·</span> <%- champ(ev.heure) %>
+            <span class="separateur" aria-hidden="true">·</span> <%- champ(ev.lieu) %>
+          </p>
+          <p class="evenement__description"><%- champ(ev.description) %></p>
+        </div>
+      </li>
+    <% }) %>
+  </ul>
+<% } %>

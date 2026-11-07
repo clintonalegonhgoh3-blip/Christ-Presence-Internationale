@@ -1,0 +1,68 @@
+<%# Fin commune à toutes les pages : pied de page avec coordonnées et liens utiles. Responsable : FRONTEND 1 %>
+  </main>
+
+  <footer class="pied">
+    <div class="conteneur pied__grille">
+      <section class="pied__bloc pied__bloc--eglise" aria-labelledby="pied-titre-eglise">
+        <h2 class="pied__nom" id="pied-titre-eglise"><%= site.nom %></h2>
+        <p class="pied__slogan"><%- champ(site.slogan) %></p>
+        <div class="groupe-boutons">
+          <a class="bouton bouton--clair" href="<%= lien('contact') %>#visite">Nous rendre visite</a>
+          <a class="bouton bouton--contour-clair" href="<%= lien('contact') %>#formulaire">Nous contacter</a>
+        </div>
+      </section>
+
+      <section class="pied__bloc" aria-labelledby="pied-titre-coordonnees">
+        <h2 class="pied__titre" id="pied-titre-coordonnees">Coordonnées</h2>
+        <address class="pied__adresse">
+          <%- champ(site.adresse.rue) %><br>
+          <%- champ(site.adresse.codePostal) %> <%- champ(site.adresse.ville) %>
+        </address>
+        <p>
+          <span class="pied__libelle">Téléphone</span>
+          <% if (estRempli(site.telephone)) { %>
+            <a href="<%= lienTelephone(site.telephone) %>"><%= site.telephone %></a>
+          <% } else { %><%- champ(site.telephone) %><% } %>
+        </p>
+        <p>
+          <span class="pied__libelle">Courriel</span>
+          <% if (estRempli(site.courriel)) { %>
+            <a href="mailto:<%= site.courriel %>"><%= site.courriel %></a>
+          <% } else { %><%- champ(site.courriel) %><% } %>
+        </p>
+      </section>
+
+      <nav class="pied__bloc" aria-labelledby="pied-titre-liens">
+        <h2 class="pied__titre" id="pied-titre-liens">Liens utiles</h2>
+        <ul class="pied__liens">
+          <% menu.forEach(function (p) { %>
+            <li><a href="<%= lien(p.id) %>"><%= p.titreMenu %></a></li>
+          <% }) %>
+          <li><a href="<%= lien('mentions-legales') %>">Mentions légales et confidentialité</a></li>
+        </ul>
+      </nav>
+
+      <section class="pied__bloc" aria-labelledby="pied-titre-reseaux">
+        <h2 class="pied__titre" id="pied-titre-reseaux">Nous suivre</h2>
+        <ul class="pied__liens">
+          <% site.reseaux.forEach(function (reseau) { %>
+            <li>
+              <% if (estRempli(reseau.url)) { %>
+                <a href="<%= reseau.url %>" rel="noopener" target="_blank"><%= reseau.nom %></a>
+              <% } else { %><%- champ(reseau.nom) %><% } %>
+            </li>
+          <% }) %>
+        </ul>
+      </section>
+    </div>
+
+    <div class="conteneur pied__bas">
+      <p>© <%= annee %> <%= site.nom %></p>
+      <p><a href="<%= lien('mentions-legales') %>">Mentions légales</a></p>
+    </div>
+  </footer>
+  <% (typeof scripts !== 'undefined' ? scripts : []).forEach(function (script) { %>
+    <script src="<%= ressource(script) %>" defer></script>
+  <% }) %>
+</body>
+</html>

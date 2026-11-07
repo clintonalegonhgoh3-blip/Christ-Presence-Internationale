@@ -1,0 +1,43 @@
+{
+  "_aide": "Horaires des cultes, groupes et événements. Pour les événements, indiquez la date au format AAAA-MM-JJ (exemple : 2026-12-24) : les événements passés disparaissent automatiquement du site.",
+  "introduction": "Retrouvez ici les horaires des cultes, les groupes et les prochains événements de l'église.",
+  "cultes": [
+    {
+      "nom": "[À COMPLÉTER : nom du culte]",
+      "jour": "[À COMPLÉTER : jour]",
+      "heure": "[À COMPLÉTER : heure de début et de fin]",
+      "lieu": "[À COMPLÉTER : lieu, s'il est différent de l'adresse principale]",
+      "description": "[À COMPLÉTER : courte description]"
+    }
+  ],
+  "groupes": [
+    {
+      "nom": "[À COMPLÉTER : nom du groupe]",
+      "public": "[À COMPLÉTER : à qui s'adresse ce groupe]",
+      "frequence": "[À COMPLÉTER : jour, heure et fréquence des rencontres]",
+      "description": "[À COMPLÉTER : ce que l'on y fait]"
+    },
+    {
+      "nom": "[À COMPLÉTER : nom du groupe]",
+      "public": "[À COMPLÉTER : à qui s'adresse ce groupe]",
+      "frequence": "[À COMPLÉTER : jour, heure et fréquence des rencontres]",
+      "description": "[À COMPLÉTER : ce que l'on y fait]"
+    }
+  ],
+  "evenements": [
+    {
+      "titre": "[À COMPLÉTER : titre de l'événement]",
+      "date": "",
+      "heure": "[À COMPLÉTER : heure]",
+      "lieu": "[À COMPLÉTER : lieu]",
+      "description": "[À COMPLÉTER : description en une ou deux phrases]"
+    },
+    {
+      "titre": "[À COMPLÉTER : titre de l'événement]",
+      "date": "",
+      "heure": "[À COMPLÉTER : heure]",
+      "lieu": "[À COMPLÉTER : lieu]",
+      "description": "[À COMPLÉTER : description en une ou deux phrases]"
+    }
+  ]
+}

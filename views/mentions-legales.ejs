@@ -1,0 +1,18 @@
+<%# Page Mentions légales et confidentialité. Responsable : FRONTEND 2 %>
+<%- include('partials/debut') %>
+<%- include('partials/en-tete-page', { titre: 'Mentions légales et confidentialité', introduction: contenu.introduction }) %>
+
+<div class="section">
+  <div class="conteneur texte-legal">
+    <% contenu.sections.forEach(function (section) { %>
+      <section class="texte-legal__section">
+        <h2 class="texte-legal__titre"><%= section.titre %></h2>
+        <% section.paragraphes.forEach(function (paragraphe) { %>
+          <p><%- champ(paragraphe) %></p>
+        <% }) %>
+      </section>
+    <% }) %>
+  </div>
+</div>
+
+<%- include('partials/fin') %>

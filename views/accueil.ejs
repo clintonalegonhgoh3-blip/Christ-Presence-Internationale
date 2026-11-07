@@ -1,0 +1,90 @@
+<%# Page d'accueil. Responsable : FRONTEND 1 %>
+<%- include('partials/debut') %>
+
+<section class="hero" aria-labelledby="hero-titre">
+  <div class="conteneur hero__grille">
+    <div class="hero__texte">
+      <p class="surtitre surtitre--clair"><%- champ(contenu.hero.surtitre) %></p>
+      <h1 class="hero__titre" id="hero-titre"><%- champ(contenu.hero.titre) %></h1>
+      <p class="hero__intro"><%- champ(contenu.hero.texte) %></p>
+      <div class="groupe-boutons">
+        <a class="bouton bouton--clair" href="<%= lien('horaires-activites') %>">Découvrir les prochaines activités</a>
+        <a class="bouton bouton--contour-clair" href="<%= lien('contact') %>#visite">Nous rendre visite</a>
+      </div>
+    </div>
+
+    <aside class="carte-culte" aria-labelledby="carte-culte-titre">
+      <h2 class="carte-culte__titre" id="carte-culte-titre">Culte principal</h2>
+      <dl class="carte-culte__infos">
+        <div class="carte-culte__ligne">
+          <dt>Jour</dt>
+          <dd><%- champ(site.cultePrincipal.jour) %></dd>
+        </div>
+        <div class="carte-culte__ligne">
+          <dt>Heure</dt>
+          <dd><%- champ(site.cultePrincipal.heure) %></dd>
+        </div>
+        <div class="carte-culte__ligne">
+          <dt>Adresse</dt>
+          <dd><%- champ(site.adresse.rue) %>, <%- champ(site.adresse.codePostal) %> <%- champ(site.adresse.ville) %></dd>
+        </div>
+      </dl>
+      <a class="lien-fleche" href="<%= lien('horaires-activites') %>#cultes">Tous les horaires</a>
+    </aside>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="presentation-titre">
+  <div class="conteneur deux-colonnes">
+    <h2 class="titre-section" id="presentation-titre"><%= contenu.presentation.titre %></h2>
+    <div class="texte-courant">
+      <% contenu.presentation.paragraphes.forEach(function (paragraphe) { %>
+        <p><%- champ(paragraphe) %></p>
+      <% }) %>
+      <p><a class="lien-fleche" href="<%= lien('a-propos') %>">Notre histoire, notre vision et nos valeurs</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--bande" aria-labelledby="visite-titre">
+  <div class="conteneur">
+    <div class="section__entete">
+      <h2 class="titre-section" id="visite-titre"><%= contenu.premiereVisite.titre %></h2>
+      <p><%- champ(contenu.premiereVisite.introduction) %></p>
+    </div>
+    <ol class="etapes" role="list">
+      <% contenu.premiereVisite.etapes.forEach(function (etape, index) { %>
+        <li class="etape">
+          <span class="etape__numero" aria-hidden="true"><%= index + 1 %></span>
+          <h3 class="etape__titre"><%- champ(etape.titre) %></h3>
+          <p><%- champ(etape.texte) %></p>
+        </li>
+      <% }) %>
+    </ol>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="activites-titre">
+  <div class="conteneur">
+    <div class="section__entete section__entete--ligne">
+      <h2 class="titre-section" id="activites-titre">Prochaines activités</h2>
+      <a class="lien-fleche" href="<%= lien('horaires-activites') %>">Tous les horaires et activités</a>
+    </div>
+    <%- include('partials/liste-evenements', { liste: evenements.slice(0, 3) }) %>
+  </div>
+</section>
+
+<section class="appel" aria-labelledby="appel-titre">
+  <div class="conteneur appel__interieur">
+    <div class="appel__texte">
+      <h2 class="appel__titre" id="appel-titre"><%= contenu.appelContact.titre %></h2>
+      <p><%- champ(contenu.appelContact.texte) %></p>
+    </div>
+    <div class="groupe-boutons">
+      <a class="bouton bouton--principal" href="<%= lien('contact') %>#formulaire">Nous contacter</a>
+      <a class="bouton bouton--contour" href="<%= lien('contact') %>#visite">Nous rendre visite</a>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/fin') %>

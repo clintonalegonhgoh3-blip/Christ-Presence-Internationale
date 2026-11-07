@@ -1,0 +1,32 @@
+{
+  "_aide": "Coordonnées générales de l'église. Elles apparaissent dans l'en-tête, le pied de page et la page Contact. Remplacez chaque texte [À COMPLÉTER : …] par l'information réelle, en gardant les guillemets.",
+  "nom": "Christ Présence Internationale",
+  "nomCourt": "CPI",
+  "slogan": "[À COMPLÉTER : phrase d'accroche ou devise de l'église]",
+  "descriptionCourte": "[À COMPLÉTER : description de l'église en une phrase, affichée par les moteurs de recherche]",
+  "adresse": {
+    "rue": "[À COMPLÉTER : numéro et nom de la rue]",
+    "codePostal": "[À COMPLÉTER : code postal]",
+    "ville": "[À COMPLÉTER : ville]",
+    "complement": "[À COMPLÉTER : précision pour trouver l'entrée (bâtiment, étage, salle)]"
+  },
+  "telephone": "[À COMPLÉTER : numéro de téléphone]",
+  "courriel": "[À COMPLÉTER : adresse courriel de l'église]",
+  "carte": {
+    "_aide": "urlIntegration : sur openstreetmap.org, cherchez l'adresse, cliquez sur « Partager », cochez « Inclure un marqueur », copiez seulement l'adresse https://www.openstreetmap.org/export/embed.html?... contenue dans le code HTML. lienItineraire : lien vers la même adresse sur une application de cartes. Laissez \"\" tant que l'adresse n'est pas connue.",
+    "urlIntegration": "",
+    "lienItineraire": ""
+  },
+  "cultePrincipal": {
+    "_aide": "Résumé affiché sur la page d'accueil. Le détail de tous les horaires se trouve dans activites.json.",
+    "jour": "[À COMPLÉTER : jour du culte principal]",
+    "heure": "[À COMPLÉTER : heure du culte principal]"
+  },
+  "reseaux": [
+    {
+      "_aide": "Un bloc par réseau social. Laissez url vide (\"\") pour ne pas afficher de lien.",
+      "nom": "[À COMPLÉTER : nom du réseau social]",
+      "url": ""
+    }
+  ]
+}

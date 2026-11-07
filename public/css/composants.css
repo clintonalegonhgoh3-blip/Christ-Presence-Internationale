@@ -1,0 +1,370 @@
+/* ==========================================================================
+   composants.css : éléments réutilisés sur plusieurs pages (boutons, cartes,
+   liste d'événements, formulaire).
+   Responsables : FRONTEND 1 (boutons, cartes) et FRONTEND 2 (événements, formulaire)
+   ========================================================================== */
+
+/* --- Boutons --- */
+.groupe-boutons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e-3);
+}
+
+.bouton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0.7rem 1.35rem;
+  border: 2px solid transparent;
+  border-radius: var(--rayon-petit);
+  font: 700 1rem/1.2 var(--f-texte);
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.bouton--principal {
+  background: var(--c-primaire);
+  color: var(--c-sur-primaire);
+}
+
+.bouton--principal:hover {
+  background: var(--c-primaire-survol);
+}
+
+.bouton--contour {
+  border-color: var(--c-primaire);
+  background: transparent;
+  color: var(--c-primaire);
+}
+
+.bouton--contour:hover {
+  background: var(--c-bande);
+}
+
+/* Boutons posés sur un fond bleu nuit */
+.bouton--clair {
+  background: var(--c-lumiere);
+  color: var(--c-sur-lumiere);
+}
+
+.bouton--clair:hover {
+  background: var(--c-lumiere-survol);
+}
+
+.bouton--contour-clair {
+  border-color: var(--c-contour-nuit);
+  background: transparent;
+  color: var(--c-sur-nuit);
+}
+
+.bouton--contour-clair:hover {
+  background: var(--c-voile-nuit);
+  border-color: var(--c-sur-nuit);
+}
+
+.bouton--large {
+  width: 100%;
+}
+
+.bouton:disabled {
+  opacity: 0.65;
+  cursor: progress;
+}
+
+.lien-fleche {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.lien-fleche::after {
+  content: "\2192";
+  display: inline-block;
+  margin-left: 0.4em;
+  transition: transform 0.15s ease;
+}
+
+.lien-fleche:hover {
+  text-decoration: underline;
+}
+
+.lien-fleche:hover::after {
+  transform: translateX(3px);
+}
+
+/* --- Carte simple --- */
+.grille-cartes {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--e-5);
+  list-style: none;
+  padding: 0;
+}
+
+@media (min-width: 48rem) {
+  .grille-cartes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.carte {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+  min-width: 0;
+  padding: var(--e-5);
+  background: var(--c-surface);
+  border: 1px solid var(--c-trait);
+  border-radius: var(--rayon);
+}
+
+.carte__titre {
+  font-size: var(--t-l);
+}
+
+/* Liste « libellé : valeur » */
+.infos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-2);
+}
+
+.infos > div {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: var(--e-3);
+}
+
+.infos dt {
+  padding-top: 0.15em;
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-doux);
+}
+
+.infos dd {
+  margin: 0;
+}
+
+.message-vide {
+  padding: var(--e-5);
+  border: 1.5px dashed var(--c-trait-champ);
+  border-radius: var(--rayon);
+  color: var(--c-doux);
+  text-align: center;
+}
+
+.separateur {
+  margin-inline: 0.3em;
+}
+
+/* --- Liste d'événements avec pastille « calendrier » --- */
+.evenements {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  border-top: 1px solid var(--c-trait);
+}
+
+.evenement {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr);
+  gap: var(--e-4) var(--e-5);
+  padding-block: var(--e-5);
+  border-bottom: 1px solid var(--c-trait);
+}
+
+.evenement__date {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  align-self: start;
+  overflow: hidden;
+  text-align: center;
+  background: var(--c-surface);
+  border: 1px solid var(--c-trait);
+  border-radius: var(--rayon-petit);
+}
+
+.evenement__mois {
+  order: -1;
+  padding: 0.2rem 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--c-primaire);
+  color: var(--c-sur-primaire);
+}
+
+.evenement__jour {
+  padding: 0.4rem 0 0.5rem;
+  font-family: var(--f-titre);
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.evenement__date--vide {
+  border-style: dashed;
+  border-color: var(--c-a-completer-trait);
+}
+
+.evenement__date--vide .evenement__mois {
+  background: var(--c-a-completer);
+  color: var(--c-encre);
+}
+
+.evenement__corps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-2);
+  min-width: 0;
+}
+
+.evenement__titre {
+  font-size: var(--t-l);
+}
+
+.evenement__meta {
+  font-size: var(--t-s);
+  color: var(--c-doux);
+}
+
+/* --- Formulaire --- */
+.panneau {
+  padding: clamp(1.25rem, 1rem + 2vw, 2.25rem);
+  background: var(--c-surface);
+  border: 1px solid var(--c-trait);
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre);
+}
+
+.formulaire {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-4);
+  margin-top: var(--e-4);
+}
+
+.formulaire__intro,
+.formulaire__confidentialite {
+  color: var(--c-doux);
+  font-size: var(--t-s);
+}
+
+.formulaire__confidentialite {
+  font-size: var(--t-xs);
+}
+
+.champ-formulaire {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-2);
+}
+
+.champ-formulaire label {
+  font-weight: 700;
+}
+
+.champ-formulaire input,
+.champ-formulaire textarea {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.75rem 0.9rem;
+  font: inherit;
+  color: var(--c-encre);
+  background: var(--c-fond);
+  border: 1.5px solid var(--c-trait-champ);
+  border-radius: var(--rayon-petit);
+}
+
+.champ-formulaire textarea {
+  min-height: 9rem;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.champ-formulaire input:focus-visible,
+.champ-formulaire textarea:focus-visible {
+  outline-offset: 1px;
+  border-color: var(--c-primaire);
+}
+
+.champ-formulaire [aria-invalid="true"] {
+  border-color: var(--c-erreur);
+  background: var(--c-erreur-fond);
+}
+
+.champ-formulaire__aide {
+  font-size: var(--t-xs);
+  color: var(--c-doux);
+  font-variant-numeric: tabular-nums;
+}
+
+.champ-formulaire__erreur {
+  font-size: var(--t-s);
+  font-weight: 700;
+  color: var(--c-erreur);
+}
+
+.champ-formulaire__erreur:empty,
+.formulaire__statut:empty {
+  display: none;
+}
+
+/* Piège à robots : hors de l'écran, jamais vu par les visiteurs */
+.champ-piege {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.formulaire__statut,
+.alerte--erreur {
+  padding: 0.75rem 1rem;
+  border-radius: var(--rayon-petit);
+  background: var(--c-erreur-fond);
+  color: var(--c-erreur);
+  font-weight: 700;
+}
+
+.confirmation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--e-3);
+  margin-top: var(--e-4);
+  padding: var(--e-5);
+  border-radius: var(--rayon);
+  background: var(--c-succes-fond);
+}
+
+.confirmation__icone {
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  background: var(--c-succes);
+  fill: var(--c-succes-fond);
+}
+
+.confirmation__titre {
+  font-size: var(--t-xl);
+  color: var(--c-succes);
+}
+
+.confirmation__demo {
+  font-size: var(--t-xs);
+  color: var(--c-doux);
+}

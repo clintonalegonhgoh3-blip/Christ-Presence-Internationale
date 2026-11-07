@@ -1,0 +1,31 @@
+{
+  "name": "site-christ-presence-internationale",
+  "version": "1.0.0",
+  "description": "Site web de l’église Christ Présence Internationale (prototype)",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "jest",
+    "build": "node scripts/build-static.js",
+    "contenu": "node scripts/check-contenu.js"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "ejs": "^7.0.2",
+    "express": "^4.22.3",
+    "express-rate-limit": "^8.7.2",
+    "helmet": "^8.3.0"
+  },
+  "devDependencies": {
+    "jest": "^30.5.2",
+    "supertest": "^7.3.1"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=18.11"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "_aide": "Informations légales obligatoires pour un site publié en France (éditeur, hébergeur, données personnelles). À faire relire par un responsable de l'église.",
+  "introduction": "Informations légales concernant ce site et la façon dont vos données sont utilisées.",
+  "sections": [
+    {
+      "titre": "Éditeur du site",
+      "paragraphes": [
+        "[À COMPLÉTER : nom officiel de l'association ou de l'église, forme juridique et numéro RNA ou SIREN si existant]",
+        "[À COMPLÉTER : adresse du siège]",
+        "[À COMPLÉTER : nom du ou de la responsable de la publication]"
+      ]
+    },
+    {
+      "titre": "Hébergement",
+      "paragraphes": [
+        "[À COMPLÉTER : nom, adresse et téléphone de l'hébergeur du site]"
+      ]
+    },
+    {
+      "titre": "Données personnelles",
+      "paragraphes": [
+        "Le formulaire de contact recueille votre nom, votre adresse courriel et votre message. Ces informations servent uniquement à vous répondre et ne sont jamais vendues ni transmises à des tiers.",
+        "[À COMPLÉTER : durée de conservation des messages]",
+        "Vous pouvez demander à consulter, corriger ou supprimer vos données en écrivant à : [À COMPLÉTER : adresse courriel de contact pour les données personnelles]."
+      ]
+    }
+  ]
+}

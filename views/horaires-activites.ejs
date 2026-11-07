@@ -1,0 +1,76 @@
+<%# Page Horaires et activités. Responsable : FRONTEND 2 %>
+<%- include('partials/debut') %>
+<%- include('partials/en-tete-page', { titre: 'Horaires et activités', introduction: contenu.introduction }) %>
+
+<nav class="sommaire conteneur" aria-label="Sur cette page">
+  <a href="#cultes">Cultes</a>
+  <a href="#groupes">Groupes et rencontres</a>
+  <a href="#evenements">Événements à venir</a>
+</nav>
+
+<section class="section" id="cultes" aria-labelledby="cultes-titre">
+  <div class="conteneur">
+    <div class="section__entete">
+      <h2 class="titre-section" id="cultes-titre">Cultes</h2>
+    </div>
+    <ul class="horaires" role="list">
+      <% contenu.cultes.forEach(function (culte) { %>
+        <li class="horaire">
+          <div class="horaire__quand">
+            <span class="horaire__jour"><%- champ(culte.jour) %></span>
+            <span class="horaire__heure"><%- champ(culte.heure) %></span>
+          </div>
+          <div class="horaire__quoi">
+            <h3 class="horaire__nom"><%- champ(culte.nom) %></h3>
+            <p class="horaire__lieu"><%- champ(culte.lieu) %></p>
+            <p><%- champ(culte.description) %></p>
+          </div>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+</section>
+
+<section class="section section--bande" id="groupes" aria-labelledby="groupes-titre">
+  <div class="conteneur">
+    <div class="section__entete">
+      <h2 class="titre-section" id="groupes-titre">Groupes et rencontres</h2>
+    </div>
+    <ul class="grille-cartes" role="list">
+      <% contenu.groupes.forEach(function (groupe) { %>
+        <li class="carte">
+          <h3 class="carte__titre"><%- champ(groupe.nom) %></h3>
+          <dl class="infos">
+            <div><dt>Pour qui</dt><dd><%- champ(groupe.public) %></dd></div>
+            <div><dt>Quand</dt><dd><%- champ(groupe.frequence) %></dd></div>
+          </dl>
+          <p><%- champ(groupe.description) %></p>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="evenements" aria-labelledby="evenements-titre">
+  <div class="conteneur">
+    <div class="section__entete">
+      <h2 class="titre-section" id="evenements-titre">Événements à venir</h2>
+    </div>
+    <%- include('partials/liste-evenements', { liste: evenements }) %>
+  </div>
+</section>
+
+<section class="appel" aria-labelledby="appel-titre">
+  <div class="conteneur appel__interieur">
+    <div class="appel__texte">
+      <h2 class="appel__titre" id="appel-titre">Envie de venir nous voir ?</h2>
+      <p>Retrouvez l'adresse, le plan d'accès et nos coordonnées.</p>
+    </div>
+    <div class="groupe-boutons">
+      <a class="bouton bouton--principal" href="<%= lien('contact') %>#visite">Nous rendre visite</a>
+      <a class="bouton bouton--contour" href="<%= lien('contact') %>#formulaire">Nous contacter</a>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/fin') %>

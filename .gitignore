@@ -1,0 +1,7 @@
+node_modules/
+dist/
+coverage/
+# Messages du formulaire : données personnelles, ne jamais les mettre sur GitHub
+data/
+.env
+.DS_Store

@@ -1,0 +1,456 @@
+/* ==========================================================================
+   mise-en-page.css : structure générale (conteneur, en-tête, menu, sections,
+   bandeaux, pied de page).
+   Responsable : FRONTEND 1
+   ========================================================================== */
+
+.conteneur {
+  width: 100%;
+  max-width: var(--largeur-max);
+  margin-inline: auto;
+  padding-left: max(var(--gouttiere), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--gouttiere), env(safe-area-inset-right, 0px));
+}
+
+/* --- En-tête collant --- */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 30;
+  background: var(--c-surface);
+}
+
+.entete {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 20;
+  background: var(--c-surface);
+  border-bottom: 1px solid var(--c-trait);
+}
+
+.entete__barre {
+  display: flex;
+  align-items: center;
+  gap: var(--e-4);
+  min-height: 4.5rem;
+  padding-block: var(--e-2);
+}
+
+.marque {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-right: auto;
+  min-width: 0;
+  color: var(--c-encre);
+  font-family: var(--f-titre);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.15;
+  text-decoration: none;
+}
+
+.marque__logo {
+  flex: none;
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.marque__halo {
+  fill: var(--c-nuit);
+}
+
+.marque__croix {
+  fill: var(--c-lumiere);
+}
+
+/* --- Menu principal --- */
+.menu {
+  display: flex;
+  align-items: center;
+  gap: var(--e-4);
+}
+
+.menu__liste {
+  display: flex;
+  gap: 0.15rem;
+  list-style: none;
+  padding: 0;
+}
+
+.menu__lien {
+  display: block;
+  padding: 0.55rem 0.7rem;
+  border-radius: var(--rayon-petit);
+  color: var(--c-encre);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.menu__lien:hover {
+  background: var(--c-bande);
+}
+
+.menu__lien[aria-current="page"] {
+  color: var(--c-primaire);
+  font-weight: 700;
+  border-radius: var(--rayon-petit) var(--rayon-petit) 0 0;
+  box-shadow: inset 0 -3px 0 var(--c-lumiere);
+}
+
+.menu__action {
+  white-space: nowrap;
+}
+
+.menu-bouton {
+  display: none;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.9rem;
+  border: 1.5px solid var(--c-trait-champ);
+  border-radius: var(--rayon-petit);
+  background: transparent;
+  color: var(--c-encre);
+  font: 700 1rem/1 var(--f-texte);
+  cursor: pointer;
+}
+
+.menu-bouton__icone,
+.menu-bouton__icone span,
+.menu-bouton__icone span::before,
+.menu-bouton__icone span::after {
+  display: block;
+  width: 1.15rem;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+}
+
+.menu-bouton__icone {
+  height: auto;
+  background: none;
+}
+
+.menu-bouton__icone span {
+  position: relative;
+}
+
+.menu-bouton__icone span::before,
+.menu-bouton__icone span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.menu-bouton__icone span::before {
+  top: -6px;
+}
+
+.menu-bouton__icone span::after {
+  top: 6px;
+}
+
+.menu-bouton[aria-expanded="true"] .menu-bouton__icone span {
+  background: transparent;
+}
+
+.menu-bouton[aria-expanded="true"] .menu-bouton__icone span::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.menu-bouton[aria-expanded="true"] .menu-bouton__icone span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+/* Menu sur téléphone et tablette */
+@media (max-width: 72rem) {
+  /* Sans JavaScript : le menu reste affiché sous le nom de l'église. */
+  .sans-js .entete__barre {
+    flex-wrap: wrap;
+  }
+
+  .sans-js .menu,
+  .sans-js .menu__liste {
+    flex-wrap: wrap;
+  }
+
+  /* Avec JavaScript : bouton « Menu » qui ouvre un panneau. */
+  .js .menu-bouton {
+    display: inline-flex;
+  }
+
+  .js .menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--e-4);
+    max-height: calc(100dvh - 4.5rem - env(safe-area-inset-top, 0px));
+    overflow-y: auto;
+    padding-top: var(--e-2);
+    padding-bottom: var(--e-5);
+    padding-left: max(var(--gouttiere), env(safe-area-inset-left, 0px));
+    padding-right: max(var(--gouttiere), env(safe-area-inset-right, 0px));
+    background: var(--c-surface);
+    border-bottom: 1px solid var(--c-trait);
+    box-shadow: var(--ombre);
+  }
+
+  .js .menu.est-ouvert {
+    display: flex;
+  }
+
+  .js .menu__liste {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .js .menu__lien {
+    padding: 0.9rem 0.25rem;
+    border-bottom: 1px solid var(--c-trait);
+    border-radius: 0;
+    font-size: var(--t-m);
+  }
+
+  .js .menu__lien[aria-current="page"] {
+    box-shadow: inset 3px 0 0 var(--c-lumiere);
+    padding-left: 0.9rem;
+  }
+}
+
+/* --- Sections --- */
+.section {
+  padding-block: var(--e-8);
+}
+
+.section--bande {
+  background: var(--c-bande);
+}
+
+.section__entete {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+  max-width: var(--largeur-texte);
+  margin-bottom: var(--e-6);
+  color: var(--c-doux);
+}
+
+.section__entete .titre-section {
+  color: var(--c-encre);
+}
+
+.section__entete--ligne {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--e-3) var(--e-5);
+  max-width: none;
+}
+
+.titre-section {
+  font-size: var(--t-2xl);
+}
+
+.deux-colonnes {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--e-5) var(--e-7);
+}
+
+@media (min-width: 52rem) {
+  .deux-colonnes {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr);
+    align-items: start;
+  }
+}
+
+.texte-courant {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-4);
+  max-width: var(--largeur-texte);
+  min-width: 0;
+}
+
+.surtitre {
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-lumiere-texte);
+}
+
+/* --- Fond « nuit éclairée » : accueil, bandeaux de page --- */
+.hero,
+.bandeau-page {
+  --c-focus: var(--c-lumiere);
+  color: var(--c-sur-nuit);
+  background:
+    radial-gradient(48rem 28rem at 92% -14%, var(--c-lueur), transparent 62%),
+    radial-gradient(36rem 24rem at -8% 115%, var(--c-lueur-froide), transparent 60%),
+    var(--c-nuit);
+}
+
+.hero a:not(.bouton),
+.bandeau-page a:not(.bouton) {
+  color: var(--c-sur-nuit);
+}
+
+.surtitre--clair,
+.bandeau-page .surtitre {
+  color: var(--c-lumiere);
+}
+
+.bandeau-page__interieur {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+  padding-block: clamp(2.5rem, 1.5rem + 4vw, 4.5rem);
+}
+
+.bandeau-page__titre {
+  font-size: var(--t-3xl);
+}
+
+.bandeau-page__intro {
+  max-width: var(--largeur-texte);
+  font-size: var(--t-l);
+  color: var(--c-sur-nuit-doux);
+}
+
+/* --- Sommaire interne d'une page --- */
+.sommaire {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e-2) var(--e-5);
+  padding-block: var(--e-4);
+  border-bottom: 1px solid var(--c-trait);
+  font-weight: 700;
+}
+
+.sommaire a {
+  text-decoration: none;
+}
+
+.sommaire a:hover {
+  text-decoration: underline;
+}
+
+/* --- Bandeau d'appel à l'action (avant le pied de page) --- */
+.appel {
+  background: var(--c-bande);
+  border-top: 1px solid var(--c-trait);
+}
+
+.appel__interieur {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--e-5);
+  padding-block: var(--e-7);
+}
+
+.appel__texte {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-2);
+  max-width: 36rem;
+  min-width: 0;
+  color: var(--c-doux);
+}
+
+.appel__titre {
+  font-size: var(--t-xl);
+  color: var(--c-encre);
+}
+
+/* --- Pied de page --- */
+.pied {
+  --c-focus: var(--c-lumiere);
+  background: var(--c-nuit);
+  color: var(--c-sur-nuit);
+}
+
+.pied a:not(.bouton) {
+  color: var(--c-sur-nuit);
+}
+
+.pied__grille {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--e-6);
+  padding-block: var(--e-7) var(--e-6);
+}
+
+@media (min-width: 40rem) {
+  .pied__grille {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 66rem) {
+  .pied__grille {
+    grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr));
+  }
+}
+
+.pied__bloc {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+  min-width: 0;
+  font-size: var(--t-s);
+}
+
+.pied__nom {
+  font-size: var(--t-xl);
+}
+
+.pied__slogan,
+.pied__libelle {
+  color: var(--c-sur-nuit-doux);
+}
+
+.pied__libelle {
+  display: block;
+  font-size: var(--t-xs);
+}
+
+.pied__titre {
+  font-family: var(--f-texte);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-lumiere);
+}
+
+.pied__liens {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-2);
+  list-style: none;
+  padding: 0;
+}
+
+.pied__bas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--e-3);
+  padding-block: var(--e-4) var(--e-5);
+  border-top: 1px solid var(--c-trait-nuit);
+  font-size: var(--t-xs);
+  color: var(--c-sur-nuit-doux);
+}

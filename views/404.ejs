@@ -1,0 +1,14 @@
+<%# Page introuvable (erreur 404). Responsable : FRONTEND 1 %>
+<%- include('partials/debut') %>
+<%- include('partials/en-tete-page', { titre: 'Page introuvable', introduction: "La page demandée n'existe pas ou a été déplacée." }) %>
+
+<div class="section">
+  <div class="conteneur">
+    <div class="groupe-boutons">
+      <a class="bouton bouton--principal" href="<%= lien('accueil') %>">Retour à l'accueil</a>
+      <a class="bouton bouton--contour" href="<%= lien('contact') %>#formulaire">Nous contacter</a>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/fin') %>

@@ -1,0 +1,25 @@
+{
+  "_aide": "Prédications et enseignements. Une prédication par bloc, la plus récente en premier. audio : nom d'un fichier .mp3 placé dans public/audio/ (exemple : audio/2026-11-08.mp3) ou adresse https complète. video : lien vers la vidéo (YouTube, etc.). Laissez \"\" quand il n'y a pas de fichier. Si la liste est vide ([]), la page affiche un message d'attente.",
+  "introduction": "Retrouvez ici les prédications et enseignements partagés lors des cultes.",
+  "messageVide": "Les premiers enseignements seront bientôt disponibles.",
+  "predications": [
+    {
+      "titre": "[À COMPLÉTER : titre de la prédication]",
+      "orateur": "[À COMPLÉTER : nom de la personne qui a prêché]",
+      "date": "",
+      "passage": "[À COMPLÉTER : passage biblique]",
+      "resume": "[À COMPLÉTER : résumé en deux ou trois phrases]",
+      "audio": "",
+      "video": ""
+    },
+    {
+      "titre": "[À COMPLÉTER : titre de la prédication]",
+      "orateur": "[À COMPLÉTER : nom de la personne qui a prêché]",
+      "date": "",
+      "passage": "[À COMPLÉTER : passage biblique]",
+      "resume": "[À COMPLÉTER : résumé en deux ou trois phrases]",
+      "audio": "",
+      "video": ""
+    }
+  ]
+}

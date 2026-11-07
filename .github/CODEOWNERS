@@ -1,0 +1,11 @@
+# Relecteur demandé automatiquement selon les fichiers modifiés dans une pull request.
+# Remplacez les pseudos par les vrais pseudos GitHub de l'équipe, puis retirez le « # » en début de ligne.
+
+# *                          @pseudo-chef-de-projet
+# /content/                  @pseudo-contenu
+# /tests/                    @pseudo-tests
+# /src/                      @pseudo-backend
+# /shared/                   @pseudo-backend @pseudo-front-2
+# /views/partials/           @pseudo-front-1
+# /public/css/               @pseudo-front-1 @pseudo-front-2
+# /public/js/formulaire-contact.js  @pseudo-front-2

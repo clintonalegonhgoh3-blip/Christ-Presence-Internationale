@@ -1,0 +1,49 @@
+<%# Page Enseignements (prédications). Responsable : FRONTEND 2 %>
+<%- include('partials/debut') %>
+<%- include('partials/en-tete-page', { titre: 'Enseignements', introduction: contenu.introduction }) %>
+
+<section class="section" aria-labelledby="predications-titre">
+  <div class="conteneur">
+    <h2 class="visuellement-cache" id="predications-titre">Liste des prédications</h2>
+
+    <% if (contenu.predications.length === 0) { %>
+      <p class="message-vide"><%= contenu.messageVide %></p>
+    <% } else { %>
+      <ul class="predications" role="list">
+        <% contenu.predications.forEach(function (predication) { %>
+          <li class="predication">
+            <div class="predication__texte">
+              <h3 class="predication__titre"><%- champ(predication.titre) %></h3>
+              <p class="predication__meta">
+                <%- champ(predication.orateur) %>
+                <span class="separateur" aria-hidden="true">·</span>
+                <% if (dateLisible(predication.date)) { %>
+                  <time datetime="<%= predication.date %>"><%= dateLisible(predication.date) %></time>
+                <% } else { %>
+                  <span class="a-completer">[À COMPLÉTER : date au format AAAA-MM-JJ]</span>
+                <% } %>
+              </p>
+              <p class="predication__passage"><%- champ(predication.passage) %></p>
+              <p><%- champ(predication.resume) %></p>
+            </div>
+            <div class="predication__media">
+              <% if (estRempli(predication.audio)) { %>
+                <audio class="lecteur-audio" controls preload="none" src="<%= urlMedia(predication.audio) %>">
+                  Votre navigateur ne peut pas lire ce fichier audio.
+                </audio>
+              <% } %>
+              <% if (estRempli(predication.video)) { %>
+                <a class="bouton bouton--contour" href="<%= predication.video %>" target="_blank" rel="noopener">Regarder la vidéo</a>
+              <% } %>
+              <% if (!estRempli(predication.audio) && !estRempli(predication.video)) { %>
+                <p class="predication__attente">Enregistrement bientôt disponible</p>
+              <% } %>
+            </div>
+          </li>
+        <% }) %>
+      </ul>
+    <% } %>
+  </div>
+</section>
+
+<%- include('partials/fin') %>

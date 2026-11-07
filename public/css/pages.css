@@ -1,0 +1,489 @@
+/* ==========================================================================
+   pages.css : styles propres à une page.
+   Responsables : FRONTEND 1 (Accueil, À propos) et FRONTEND 2 (Horaires,
+   Enseignements, Contact, Mentions légales).
+   Chaque développeur travaille dans sa partie du fichier pour éviter les conflits Git.
+   ========================================================================== */
+
+/* ===== ACCUEIL (FRONTEND 1) ===== */
+.hero__grille {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: end;
+  gap: var(--e-6);
+  padding-block: clamp(3rem, 2rem + 5vw, 6rem);
+}
+
+@media (min-width: 58rem) {
+  .hero__grille {
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+    gap: var(--e-7);
+  }
+}
+
+.hero__texte {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-4);
+  min-width: 0;
+}
+
+.hero__titre {
+  max-width: 20ch;
+  font-size: var(--t-3xl);
+}
+
+.hero__intro {
+  max-width: 34rem;
+  font-size: var(--t-l);
+  color: var(--c-sur-nuit-doux);
+}
+
+.hero__texte .groupe-boutons {
+  margin-top: var(--e-2);
+}
+
+.carte-culte {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-4);
+  min-width: 0;
+  padding: var(--e-5);
+  background: var(--c-voile-nuit);
+  border: 1px solid var(--c-trait-nuit);
+  border-radius: var(--rayon);
+}
+
+.carte-culte__titre {
+  font-size: var(--t-l);
+}
+
+.carte-culte__infos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+}
+
+.carte-culte__ligne {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: var(--e-3);
+  padding-bottom: var(--e-3);
+  border-bottom: 1px solid var(--c-trait-nuit);
+}
+
+.carte-culte__ligne dt {
+  padding-top: 0.15em;
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-lumiere);
+}
+
+.carte-culte__ligne dd {
+  margin: 0;
+}
+
+.etapes {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--e-6);
+  list-style: none;
+  padding: 0;
+}
+
+@media (min-width: 48rem) {
+  .etapes {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.etape {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+  padding-top: var(--e-4);
+  border-top: 2px solid var(--c-trait);
+}
+
+.etape__numero {
+  font-family: var(--f-titre);
+  font-size: 2.25rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--c-lumiere-texte);
+}
+
+.etape__titre {
+  font-size: var(--t-l);
+}
+
+/* ===== À PROPOS (FRONTEND 1) ===== */
+.texte-mis-en-avant {
+  font-family: var(--f-titre);
+  font-size: var(--t-xl);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.verset {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-2);
+  padding-left: var(--e-5);
+  border-left: 2px solid var(--c-lumiere);
+}
+
+.verset__texte {
+  font-size: var(--t-l);
+  font-style: italic;
+}
+
+.verset__reference {
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--c-doux);
+}
+
+.valeurs {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--e-6);
+  list-style: none;
+  padding: 0;
+}
+
+@media (min-width: 48rem) {
+  .valeurs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.valeur {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+  padding-top: var(--e-4);
+  border-top: 2px solid var(--c-lumiere);
+}
+
+.valeur__nom {
+  font-size: var(--t-xl);
+}
+
+.equipe {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--e-5);
+  list-style: none;
+  padding: 0;
+}
+
+@media (min-width: 48rem) {
+  .equipe {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.membre {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-4);
+  min-width: 0;
+  padding: var(--e-5);
+  background: var(--c-surface);
+  border: 1px solid var(--c-trait);
+  border-radius: var(--rayon);
+}
+
+.membre__photo {
+  flex: none;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.membre__photo--initiales {
+  display: grid;
+  place-items: center;
+  background: var(--c-bande);
+  border: 1px solid var(--c-trait);
+  color: var(--c-lumiere-texte);
+  font-family: var(--f-titre);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.membre__texte {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-2);
+  min-width: 0;
+}
+
+.membre__nom {
+  font-size: var(--t-l);
+}
+
+.membre__role {
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-lumiere-texte);
+}
+
+/* ===== HORAIRES ET ACTIVITÉS (FRONTEND 2) ===== */
+.horaires {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-4);
+  list-style: none;
+  padding: 0;
+}
+
+.horaire {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--e-4) var(--e-6);
+  padding: var(--e-5);
+  background: var(--c-surface);
+  border: 1px solid var(--c-trait);
+  border-radius: var(--rayon);
+}
+
+@media (min-width: 44rem) {
+  .horaire {
+    grid-template-columns: 15rem minmax(0, 1fr);
+  }
+}
+
+.horaire__quand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-1);
+  min-width: 0;
+}
+
+.horaire__jour {
+  font-family: var(--f-titre);
+  font-size: var(--t-xl);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.horaire__heure {
+  font-size: var(--t-l);
+  font-weight: 700;
+  color: var(--c-lumiere-texte);
+  font-variant-numeric: tabular-nums;
+}
+
+.horaire__quoi {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-2);
+  min-width: 0;
+}
+
+.horaire__nom {
+  font-size: var(--t-l);
+}
+
+.horaire__lieu {
+  color: var(--c-doux);
+}
+
+/* ===== ENSEIGNEMENTS (FRONTEND 2) ===== */
+.predications {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-5);
+  list-style: none;
+  padding: 0;
+}
+
+.predication {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--e-5);
+  padding: var(--e-5);
+  background: var(--c-surface);
+  border: 1px solid var(--c-trait);
+  border-radius: var(--rayon);
+}
+
+@media (min-width: 52rem) {
+  .predication {
+    grid-template-columns: minmax(0, 1fr) 17rem;
+    align-items: center;
+  }
+}
+
+.predication__texte {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-2);
+  min-width: 0;
+}
+
+.predication__titre {
+  font-size: var(--t-xl);
+}
+
+.predication__meta {
+  font-size: var(--t-s);
+  color: var(--c-doux);
+}
+
+.predication__passage {
+  font-size: var(--t-s);
+  font-weight: 700;
+  color: var(--c-lumiere-texte);
+}
+
+.predication__media {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+  min-width: 0;
+}
+
+.lecteur-audio {
+  width: 100%;
+}
+
+.predication__attente {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.5rem;
+  padding: var(--e-3);
+  border: 1.5px dashed var(--c-trait-champ);
+  border-radius: var(--rayon-petit);
+  font-size: var(--t-s);
+  color: var(--c-doux);
+  text-align: center;
+}
+
+/* ===== CONTACT ET ACCÈS (FRONTEND 2) ===== */
+.contact {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--e-7);
+}
+
+@media (min-width: 62rem) {
+  .contact {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    align-items: start;
+  }
+}
+
+.contact__visite {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-5);
+  min-width: 0;
+}
+
+.contact__visite:focus,
+.contact__formulaire:focus {
+  outline: none;
+}
+
+.coordonnees {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--c-trait);
+}
+
+.coordonnees__ligne {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  gap: var(--e-4);
+  padding-block: var(--e-3);
+  border-bottom: 1px solid var(--c-trait);
+}
+
+.coordonnees__ligne dt {
+  padding-top: 0.15em;
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-doux);
+}
+
+.coordonnees__ligne dd {
+  margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.carte-acces {
+  aspect-ratio: 4 / 3;
+  max-width: 100%;
+  overflow: hidden;
+  background: var(--c-bande);
+  border: 1px solid var(--c-trait);
+  border-radius: var(--rayon);
+}
+
+.carte-acces__cadre {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.carte-acces__attente {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--e-3);
+  height: 100%;
+  padding: var(--e-5);
+  text-align: center;
+  font-size: var(--t-s);
+  background-image:
+    linear-gradient(var(--c-trait) 1px, transparent 1px),
+    linear-gradient(90deg, var(--c-trait) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.carte-acces__attente svg {
+  width: 2.5rem;
+  height: 2.5rem;
+  fill: var(--c-lumiere-texte);
+}
+
+.carte-acces__attente p {
+  max-width: 22rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--c-surface);
+  border-radius: var(--rayon-petit);
+}
+
+/* ===== MENTIONS LÉGALES (FRONTEND 2) ===== */
+.texte-legal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-6);
+}
+
+.texte-legal__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--e-3);
+  max-width: var(--largeur-texte);
+}
+
+.texte-legal__titre {
+  font-size: var(--t-xl);
+}

@@ -1,0 +1,72 @@
+<%# Page À propos : histoire, vision, valeurs, équipe. Responsable : FRONTEND 1 %>
+<%- include('partials/debut') %>
+<%- include('partials/en-tete-page', { titre: 'À propos', introduction: contenu.introduction }) %>
+
+<section class="section" aria-labelledby="histoire-titre">
+  <div class="conteneur deux-colonnes">
+    <h2 class="titre-section" id="histoire-titre"><%= contenu.histoire.titre %></h2>
+    <div class="texte-courant">
+      <% contenu.histoire.paragraphes.forEach(function (paragraphe) { %>
+        <p><%- champ(paragraphe) %></p>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<section class="section section--bande" aria-labelledby="vision-titre">
+  <div class="conteneur deux-colonnes">
+    <h2 class="titre-section" id="vision-titre"><%= contenu.vision.titre %></h2>
+    <div class="texte-courant">
+      <p class="texte-mis-en-avant"><%- champ(contenu.vision.texte) %></p>
+      <% if (contenu.vision.verset && contenu.vision.verset.texte) { %>
+        <figure class="verset">
+          <blockquote class="verset__texte"><p><%- champ(contenu.vision.verset.texte) %></p></blockquote>
+          <figcaption class="verset__reference"><%- champ(contenu.vision.verset.reference) %></figcaption>
+        </figure>
+      <% } %>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="valeurs-titre">
+  <div class="conteneur">
+    <div class="section__entete">
+      <h2 class="titre-section" id="valeurs-titre"><%= contenu.valeurs.titre %></h2>
+    </div>
+    <ul class="valeurs" role="list">
+      <% contenu.valeurs.liste.forEach(function (valeur) { %>
+        <li class="valeur">
+          <h3 class="valeur__nom"><%- champ(valeur.nom) %></h3>
+          <p><%- champ(valeur.description) %></p>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+</section>
+
+<section class="section section--bande" aria-labelledby="equipe-titre">
+  <div class="conteneur">
+    <div class="section__entete">
+      <h2 class="titre-section" id="equipe-titre"><%= contenu.equipe.titre %></h2>
+      <p><%- champ(contenu.equipe.introduction) %></p>
+    </div>
+    <ul class="equipe" role="list">
+      <% contenu.equipe.membres.forEach(function (membre) { %>
+        <li class="membre">
+          <% if (estRempli(membre.photo)) { %>
+            <img class="membre__photo" src="<%= ressource('img/' + membre.photo) %>" alt="" width="96" height="96" loading="lazy">
+          <% } else { %>
+            <span class="membre__photo membre__photo--initiales" aria-hidden="true"><%= initiales(membre.nom) %></span>
+          <% } %>
+          <div class="membre__texte">
+            <h3 class="membre__nom"><%- champ(membre.nom) %></h3>
+            <p class="membre__role"><%- champ(membre.role) %></p>
+            <p><%- champ(membre.presentation) %></p>
+          </div>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+</section>
+
+<%- include('partials/fin') %>

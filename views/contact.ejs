@@ -1,0 +1,127 @@
+<%# Page Contact et accès : coordonnées, carte, formulaire. Responsable : FRONTEND 2 %>
+<%- include('partials/debut') %>
+<%- include('partials/en-tete-page', { titre: 'Contact et accès', introduction: contenu.introduction }) %>
+
+<div class="section">
+  <div class="conteneur contact">
+
+    <section class="contact__visite" id="visite" aria-labelledby="visite-titre" tabindex="-1">
+      <h2 class="titre-section" id="visite-titre"><%= contenu.visite.titre %></h2>
+
+      <dl class="coordonnees">
+        <div class="coordonnees__ligne">
+          <dt>Adresse</dt>
+          <dd>
+            <address>
+              <%- champ(site.adresse.rue) %><br>
+              <%- champ(site.adresse.codePostal) %> <%- champ(site.adresse.ville) %><br>
+              <%- champ(site.adresse.complement) %>
+            </address>
+          </dd>
+        </div>
+        <div class="coordonnees__ligne">
+          <dt>Téléphone</dt>
+          <dd>
+            <% if (estRempli(site.telephone)) { %>
+              <a href="<%= lienTelephone(site.telephone) %>"><%= site.telephone %></a>
+            <% } else { %><%- champ(site.telephone) %><% } %>
+          </dd>
+        </div>
+        <div class="coordonnees__ligne">
+          <dt>Courriel</dt>
+          <dd>
+            <% if (estRempli(site.courriel)) { %>
+              <a href="mailto:<%= site.courriel %>"><%= site.courriel %></a>
+            <% } else { %><%- champ(site.courriel) %><% } %>
+          </dd>
+        </div>
+        <div class="coordonnees__ligne">
+          <dt>Accès</dt>
+          <dd><%- champ(contenu.visite.acces) %></dd>
+        </div>
+      </dl>
+
+      <div class="carte-acces">
+        <% if (estRempli(site.carte.urlIntegration)) { %>
+          <iframe class="carte-acces__cadre" src="<%= site.carte.urlIntegration %>" title="Carte : emplacement de l'église" loading="lazy"></iframe>
+        <% } else { %>
+          <div class="carte-acces__attente">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>
+            <p><span class="a-completer">[À COMPLÉTER : carte — renseigner carte.urlIntegration dans content/site.json]</span></p>
+          </div>
+        <% } %>
+      </div>
+      <% if (estRempli(site.carte.lienItineraire)) { %>
+        <p><a class="lien-fleche" href="<%= site.carte.lienItineraire %>" target="_blank" rel="noopener">Ouvrir l'itinéraire</a></p>
+      <% } %>
+    </section>
+
+    <section class="contact__formulaire panneau" id="formulaire" aria-labelledby="formulaire-titre" tabindex="-1">
+      <h2 class="titre-section" id="formulaire-titre"><%= contenu.formulaire.titre %></h2>
+
+      <div class="confirmation" id="confirmation" tabindex="-1" <% if (!formulaire.envoye) { %>hidden<% } %>>
+        <svg class="confirmation__icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.5 16.2 5.3 12l-1.4 1.4 5.6 5.6 11-11-1.4-1.4z"/></svg>
+        <h3 class="confirmation__titre"><%= contenu.formulaire.confirmationTitre %></h3>
+        <p><%= contenu.formulaire.confirmation %></p>
+        <p class="confirmation__demo" hidden>Mode démonstration : ce message n'a été envoyé à personne. Sur le vrai site, il sera transmis à l'église.</p>
+        <a class="bouton bouton--contour" href="<%= lien('contact') %>#formulaire" data-nouveau-message>Écrire un autre message</a>
+      </div>
+
+      <form class="formulaire" method="post" novalidate
+            action="<%= statique ? '#formulaire' : '/contact' %>"
+            data-formulaire-contact
+            data-api="<%= statique ? '' : '/api/contact' %>"
+            data-mode="<%= statique ? 'demo' : 'normal' %>"
+            <% if (formulaire.envoye) { %>hidden<% } %>>
+        <p class="formulaire__intro"><%= contenu.formulaire.introduction %></p>
+
+        <% if (formulaire.erreurs.general) { %>
+          <p class="alerte alerte--erreur" role="alert"><%= formulaire.erreurs.general %></p>
+        <% } %>
+
+        <div class="champ-formulaire">
+          <label for="nom">Nom</label>
+          <input id="nom" name="nom" type="text" autocomplete="name" required maxlength="100"
+                 value="<%= formulaire.valeurs.nom || '' %>" aria-describedby="erreur-nom"
+                 <% if (formulaire.erreurs.nom) { %>aria-invalid="true"<% } %>>
+          <p class="champ-formulaire__erreur" id="erreur-nom"><%= formulaire.erreurs.nom || '' %></p>
+        </div>
+
+        <div class="champ-formulaire">
+          <label for="email">Adresse courriel</label>
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required maxlength="254"
+                 value="<%= formulaire.valeurs.email || '' %>" aria-describedby="erreur-email"
+                 <% if (formulaire.erreurs.email) { %>aria-invalid="true"<% } %>>
+          <p class="champ-formulaire__erreur" id="erreur-email"><%= formulaire.erreurs.email || '' %></p>
+        </div>
+
+        <div class="champ-formulaire">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" required maxlength="3000"
+                    aria-describedby="aide-message erreur-message"
+                    <% if (formulaire.erreurs.message) { %>aria-invalid="true"<% } %>><%= formulaire.valeurs.message || '' %></textarea>
+          <p class="champ-formulaire__aide" id="aide-message">10 caractères minimum. <span data-compteur>0</span> / 3 000</p>
+          <p class="champ-formulaire__erreur" id="erreur-message"><%= formulaire.erreurs.message || '' %></p>
+        </div>
+
+        <%# Piège à robots : invisible pour les visiteurs, rempli seulement par les programmes de spam. %>
+        <div class="champ-piege" aria-hidden="true">
+          <label for="site_web">Ne pas remplir ce champ</label>
+          <input id="site_web" name="site_web" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <p class="formulaire__statut" id="statut-formulaire" role="status" aria-live="polite"></p>
+
+        <button class="bouton bouton--principal bouton--large" type="submit">Envoyer le message</button>
+
+        <p class="formulaire__confidentialite">
+          <%- champ(contenu.confidentialite) %>
+          <a href="<%= lien('mentions-legales') %>">Mentions légales et confidentialité</a>
+        </p>
+      </form>
+    </section>
+
+  </div>
+</div>
+
+<%- include('partials/fin', { scripts: ['js/shared/validation-contact.js', 'js/formulaire-contact.js'] }) %>

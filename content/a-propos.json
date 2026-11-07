@@ -1,0 +1,62 @@
+{
+  "_aide": "Textes de la page À propos.",
+  "introduction": "[À COMPLÉTER : phrase d'introduction de la page À propos]",
+  "histoire": {
+    "titre": "Notre histoire",
+    "paragraphes": [
+      "[À COMPLÉTER : quand, où et comment l'église a été fondée]",
+      "[À COMPLÉTER : les étapes importantes de son parcours jusqu'à aujourd'hui]"
+    ]
+  },
+  "vision": {
+    "titre": "Notre vision",
+    "texte": "[À COMPLÉTER : la vision de l'église en 2 ou 3 phrases]",
+    "verset": {
+      "_aide": "Facultatif. Laissez texte et reference vides (\"\") pour ne pas afficher de verset.",
+      "texte": "[À COMPLÉTER : verset biblique qui résume la vision]",
+      "reference": "[À COMPLÉTER : référence du verset (livre chapitre:verset)]"
+    }
+  },
+  "valeurs": {
+    "titre": "Nos valeurs",
+    "liste": [
+      {
+        "nom": "[À COMPLÉTER : valeur n° 1]",
+        "description": "[À COMPLÉTER : ce que cette valeur signifie concrètement pour l'église]"
+      },
+      {
+        "nom": "[À COMPLÉTER : valeur n° 2]",
+        "description": "[À COMPLÉTER : ce que cette valeur signifie concrètement pour l'église]"
+      },
+      {
+        "nom": "[À COMPLÉTER : valeur n° 3]",
+        "description": "[À COMPLÉTER : ce que cette valeur signifie concrètement pour l'église]"
+      }
+    ]
+  },
+  "equipe": {
+    "titre": "L'équipe",
+    "introduction": "[À COMPLÉTER : phrase de présentation de l'équipe]",
+    "membres": [
+      {
+        "_aide": "photo : nom d'un fichier placé dans public/img/equipe/ (exemple : equipe/prenom.jpg). Laissez \"\" pour afficher les initiales. Demandez l'accord de chaque personne avant de publier sa photo.",
+        "nom": "[À COMPLÉTER : prénom et nom]",
+        "role": "[À COMPLÉTER : rôle dans l'église]",
+        "presentation": "[À COMPLÉTER : présentation en une ou deux phrases]",
+        "photo": ""
+      },
+      {
+        "nom": "[À COMPLÉTER : prénom et nom]",
+        "role": "[À COMPLÉTER : rôle dans l'église]",
+        "presentation": "[À COMPLÉTER : présentation en une ou deux phrases]",
+        "photo": ""
+      },
+      {
+        "nom": "[À COMPLÉTER : prénom et nom]",
+        "role": "[À COMPLÉTER : rôle dans l'église]",
+        "presentation": "[À COMPLÉTER : présentation en une ou deux phrases]",
+        "photo": ""
+      }
+    ]
+  }
+}

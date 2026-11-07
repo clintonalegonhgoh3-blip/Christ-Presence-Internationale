@@ -1,0 +1,38 @@
+{
+  "_aide": "Textes de la page d'accueil.",
+  "_statut": "Les textes sans [À COMPLÉTER] sont des textes provisoires génériques : à relire et valider par les responsables de l'église.",
+  "hero": {
+    "surtitre": "Bienvenue",
+    "titre": "Soyez les bienvenus à Christ Présence Internationale",
+    "texte": "Que vous veniez pour la première fois ou que vous nous connaissiez déjà, nous serons heureux de vous accueillir."
+  },
+  "presentation": {
+    "titre": "Qui sommes-nous ?",
+    "paragraphes": [
+      "[À COMPLÉTER : présentation de l'église en 2 ou 3 phrases (qui vous êtes, ce que vous vivez ensemble)]",
+      "[À COMPLÉTER : à qui s'adresse l'église (familles, jeunes, étudiants…)]"
+    ]
+  },
+  "premiereVisite": {
+    "titre": "Votre première visite",
+    "introduction": "Voici comment se déroule une première visite.",
+    "etapes": [
+      {
+        "titre": "Trouver le lieu",
+        "texte": "[À COMPLÉTER : conseil pour arriver (stationnement, transports, entrée)]"
+      },
+      {
+        "titre": "Être accueilli",
+        "texte": "[À COMPLÉTER : comment les nouveaux visiteurs sont accueillis]"
+      },
+      {
+        "titre": "Vivre le culte",
+        "texte": "[À COMPLÉTER : déroulement et durée habituelle du culte]"
+      }
+    ]
+  },
+  "appelContact": {
+    "titre": "Une question avant de venir ?",
+    "texte": "Écrivez-nous, nous vous répondrons avec plaisir."
+  }
+}

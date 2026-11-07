@@ -1,0 +1,15 @@
+{
+  "_aide": "Textes de la page Contact et accès. Les coordonnées (adresse, téléphone, courriel, carte) se trouvent dans site.json.",
+  "introduction": "Une question, une demande de prière ou l'envie de nous rendre visite ? Écrivez-nous ou venez nous rencontrer.",
+  "visite": {
+    "titre": "Nous rendre visite",
+    "acces": "[À COMPLÉTER : informations pratiques (stationnement, transports en commun, accès pour les personnes à mobilité réduite)]"
+  },
+  "formulaire": {
+    "titre": "Nous contacter",
+    "introduction": "Tous les champs sont obligatoires.",
+    "confirmationTitre": "Message envoyé",
+    "confirmation": "Merci pour votre message. Nous vous répondrons dès que possible à l'adresse courriel indiquée."
+  },
+  "confidentialite": "Vos informations servent uniquement à répondre à votre message. [À COMPLÉTER : durée de conservation des messages et personne qui les lit]."
+}
