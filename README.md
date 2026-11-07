@@ -13,9 +13,8 @@ Site en français, adapté aux téléphones, tablettes et ordinateurs, avec un t
    Vérifier dans un terminal : `node --version`
 2. Récupérer le projet :
    ```bash
-   git clone <adresse-du-depot-github>
-   cd site-christ-presence-internationale
-   npm install
+git clone https://github.com/clintonalegonhgoh3-blip/Christ-Presence-Internationale.git
+cd Christ-Presence-Internationale
    ```
 3. Lancer le site :
    ```bash
