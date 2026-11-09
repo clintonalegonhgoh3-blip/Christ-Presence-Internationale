@@ -34,6 +34,18 @@
   </div>
 </section>
 
+<% if (contenu.verset && contenu.verset.texte) { %>
+<section class="bande-verset" aria-labelledby="verset-titre">
+  <div class="conteneur">
+    <h2 class="visuellement-cache" id="verset-titre">Verset du moment</h2>
+    <figure class="verset">
+      <blockquote class="verset__texte"><p><%- champ(contenu.verset.texte) %></p></blockquote>
+      <figcaption class="verset__reference"><%- champ(contenu.verset.reference) %></figcaption>
+    </figure>
+  </div>
+</section>
+<% } %>
+
 <section class="section" aria-labelledby="presentation-titre">
   <div class="conteneur deux-colonnes">
     <h2 class="titre-section" id="presentation-titre"><%= contenu.presentation.titre %></h2>

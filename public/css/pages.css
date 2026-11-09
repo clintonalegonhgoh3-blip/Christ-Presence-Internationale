@@ -119,6 +119,16 @@
   font-size: var(--t-l);
 }
 
+.bande-verset {
+  background: var(--c-bande);
+  padding-block: var(--e-7);
+}
+
+.bande-verset .verset {
+  max-width: var(--largeur-texte);
+  margin-inline: auto;
+}
+
 /* ===== À PROPOS (FRONTEND 1) ===== */
 .texte-mis-en-avant {
   font-family: var(--f-titre);
