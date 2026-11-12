@@ -6,10 +6,7 @@
       <section class="pied__bloc pied__bloc--eglise" aria-labelledby="pied-titre-eglise">
         <h2 class="pied__nom" id="pied-titre-eglise"><%= site.nom %></h2>
         <p class="pied__slogan"><%- champ(site.slogan) %></p>
-        <div class="groupe-boutons">
-          <a class="bouton bouton--clair" href="<%= lien('contact') %>#visite">Nous rendre visite</a>
-          <a class="bouton bouton--contour-clair" href="<%= lien('contact') %>#formulaire">Nous contacter</a>
-        </div>
+        <p><a class="lien-fleche" href="<%= lien('contact') %>#formulaire">Nous contacter</a></p>
       </section>
 
       <section class="pied__bloc" aria-labelledby="pied-titre-coordonnees">
