@@ -51,8 +51,17 @@
     statut.textContent = message || '';
   }
 
+  // Efface « Certains champs sont à corriger. » dès que plus aucun champ n'est en erreur.
+  function effacerStatutSiCorrige() {
+    var resteErreur = CHAMPS.some(function (champ) {
+      return formulaire.elements[champ].getAttribute('aria-invalid') === 'true';
+    });
+    if (!resteErreur) afficherStatut('');
+  }
+
+  // Compte comme la validation : sans les espaces au début et à la fin.
   function mettreAJourCompteur() {
-    if (compteur) compteur.textContent = formulaire.elements.message.value.length.toLocaleString('fr-FR');
+    if (compteur) compteur.textContent = formulaire.elements.message.value.trim().length.toLocaleString('fr-FR');
   }
 
   function afficherConfirmation() {
@@ -74,11 +83,13 @@
       if (!entree.value.trim()) return;
       champsTouches[champ] = true;
       afficherErreur(champ, window.ValidationContact.validerMessage(lireDonnees()).erreurs[champ]);
+      effacerStatutSiCorrige();
     });
     entree.addEventListener('input', function () {
       if (champ === 'message') mettreAJourCompteur();
       if (champsTouches[champ]) {
         afficherErreur(champ, window.ValidationContact.validerMessage(lireDonnees()).erreurs[champ]);
+        effacerStatutSiCorrige();
       }
     });
   });

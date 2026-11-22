@@ -28,12 +28,13 @@
             </div>
             <div class="predication__media">
               <% if (estRempli(predication.audio)) { %>
-                <audio class="lecteur-audio" controls preload="none" src="<%= urlMedia(predication.audio) %>">
+                <audio class="lecteur-audio" controls preload="none" src="<%= urlMedia(predication.audio) %>"
+                       aria-label="Écouter : <%= predication.titre %>">
                   Votre navigateur ne peut pas lire ce fichier audio.
                 </audio>
               <% } %>
               <% if (estRempli(predication.video)) { %>
-                <a class="bouton bouton--contour" href="<%= predication.video %>" target="_blank" rel="noopener">Regarder la vidéo</a>
+                <a class="bouton bouton--contour" href="<%= predication.video %>" target="_blank" rel="noopener">Regarder la vidéo<span class="visuellement-cache"> : <%= predication.titre %> (s'ouvre dans un nouvel onglet)</span></a>
               <% } %>
               <% if (!estRempli(predication.audio) && !estRempli(predication.video)) { %>
                 <p class="predication__attente">Enregistrement bientôt disponible</p>
