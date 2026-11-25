@@ -16,11 +16,29 @@
   <link rel="stylesheet" href="<%= ressource('css/composants.css') %>">
   <link rel="stylesheet" href="<%= ressource('css/pages.css') %>">
   <script src="<%= ressource('js/menu.js') %>"></script>
+  <script src="<%= ressource('js/direct.js') %>" defer></script>
 </head>
 <body>
   <a class="lien-evitement" href="#contenu">Aller au contenu</a>
 
   <header class="entete">
+    <% if (site.direct && estRempli(site.direct.url)) { %>
+      <div class="entete__direct">
+        <div class="conteneur entete__direct-interieur">
+          <a class="direct" href="<%= site.direct.url %>" target="_blank" rel="noopener"
+             data-jour="<%= site.direct.jour %>" data-heure="<%= site.direct.heure %>"
+             data-duree="<%= site.direct.duree %>" data-fuseau="<%= site.direct.fuseau %>">
+            <svg class="direct__icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M15 8.5V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1.5l5 3v-11l-5 3z"/>
+            </svg>
+            <span class="direct__texte">Culte en direct</span>
+            <span class="direct__compte"></span>
+            <span class="visuellement-cache">(s'ouvre dans un nouvel onglet)</span>
+          </a>
+        </div>
+      </div>
+    <% } %>
+
     <div class="conteneur entete__barre">
       <a class="marque" href="<%= lien('accueil') %>">
         <svg class="marque__logo" viewBox="0 0 32 32" aria-hidden="true" focusable="false">

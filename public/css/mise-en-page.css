@@ -454,3 +454,28 @@ body::before {
   font-size: var(--t-xs);
   color: var(--c-sur-nuit-doux);
 }
+
+/* --- Bande « culte en direct » dans l'en-tête --- */
+.entete__direct {
+  background: var(--c-nuit);
+  border-bottom: 1px solid var(--c-trait-nuit);
+}
+
+.entete__direct-interieur {
+  display: flex;
+  justify-content: center;
+  padding-block: var(--e-2);
+}
+
+@media (min-width: 52rem) {
+  .entete__direct-interieur {
+    justify-content: flex-end;
+  }
+}
+
+/* Le panneau du menu tient compte de la hauteur de la bande. */
+@media (max-width: 72rem) {
+  .js .entete:has(.entete__direct) .menu {
+    max-height: calc(100dvh - 7.5rem - env(safe-area-inset-top, 0px));
+  }
+}
