@@ -454,3 +454,78 @@ body::before {
   font-size: var(--t-xs);
   color: var(--c-sur-nuit-doux);
 }
+
+/* --- Bande « culte en direct » dans l'en-tête --- */
+.entete__direct {
+  background: var(--c-nuit);
+  border-bottom: 1px solid var(--c-trait-nuit);
+}
+
+.entete__direct-interieur {
+  display: flex;
+  justify-content: center;
+  padding-block: var(--e-2);
+}
+
+@media (min-width: 52rem) {
+  .entete__direct-interieur {
+    justify-content: flex-end;
+  }
+}
+
+/* Le panneau du menu tient compte de la hauteur de la bande. */
+@media (max-width: 72rem) {
+  .js .entete:has(.entete__direct) .menu {
+    max-height: calc(100dvh - 7.5rem - env(safe-area-inset-top, 0px));
+  }
+}
+
+/* ----- Pastille « culte en direct » ----- */
+.direct {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--e-2);
+  padding: var(--e-2) var(--e-4);
+  border-radius: 999px;
+  background: #c42b1c;
+  color: #ffffff;
+  font-size: var(--t-xs);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.direct:hover {
+  background: #a82217;
+}
+
+.direct__icone {
+  flex: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: currentColor;
+}
+
+.direct__compte {
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.direct--live {
+  animation: direct-pulse 1.8s ease-out infinite;
+}
+
+@keyframes direct-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(196, 43, 28, 0.55); }
+  70%  { box-shadow: 0 0 0 0.6rem rgba(196, 43, 28, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(196, 43, 28, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .direct--live { animation: none; }
+}
