@@ -40,6 +40,13 @@
       }
     });
 
+        // Un clic en dehors du menu et du bouton ferme le menu.
+    document.addEventListener('click', function (evenement) {
+      if (!menu.classList.contains('est-ouvert')) return;
+      if (menu.contains(evenement.target) || bouton.contains(evenement.target)) return;
+      fermer();
+    });
+
     // Un clic sur un lien ferme le menu (utile pour les liens vers une section de la même page).
     menu.addEventListener('click', function (evenement) {
       if (evenement.target.closest('a')) fermer();
